@@ -1,47 +1,55 @@
-# Vite + React TypeScript + Tailwind CSS + Lucide Starter
+# Chat with gRPC Services
 
-This template provides a minimal setup to get React-TypeScript app working in Vite with Tailwind CSS and Lucide icons.
+Chat app using gRPC services developed as practice.
 
-## Setup and Run in Local Machine 
+練習として開発した gRPC サービスを使用したチャットアプリです。
 
-### Prerequisites
+## Setup and lunching the app ・ セットアップとアプリの起動
+
+### Prerequisites ・ 前提条件
 
 - **Node.js v21 or higher**  
   Install globally on your computer from [Node.js Downloads](https://nodejs.org/en/download/package-manager). Verify the installation by running this in a terminal:
+  
+  [Node.js Downloads](https://nodejs.org/ja/download/package-manager) からグローバルにインストールしてください。インストールを確認するにはターミナルで次を実行します:  
    ```bash
    node -v
    npm -v
    ```
 
-### Integration Steps
+### Launching the app ・ アプリの起動
 
 1. Open a terminal window and navigate to the directory where you want to clone this repository.
+  ・ターミナルを開き、このリポジトリをクローンしたいディレクトリに移動します。
    ```bash
    cd 'YOUR_FOLDER'
    ```
 
-2. Clone this repository:
+2. Clone this repository with a name of your preference
+  ・お好みの名前でこのリポジトリをクローンします:
    ```bash
-   git clone https://github.com/franzcrs/vite-react-ts-tailwind-lucide-starter.git
+   git clone https://github.com/franzcrs/chat-with-gRPC-services.git
+   cd chat-with-gRPC-services
+   ```
+   or
+   ```bash
+   git clone https://github.com/franzcrs/chat-with-gRPC-services.git new-name
+   cd new-name
    ```
    
-3. Delete .git folder inside the cloned repository:
-   ```bash
-   cd vite-react-ts-tailwind-lucide-starter
-   rm -rf .git
-   ```
-
-4. Install dependencies:
+3. Install dependencies
+  ・Dependenciesをインストールします:
    ```bash
    npm install
    ```
-5. Try out the starter app:
+
+4. Try out the app
+  ・アプリを起動して試します: 
    ```bash
    npm run dev
    ```
-   Type in the letter `o`+`Enter` to open the browser and navigate to the app server URL (http://localhost:3000):
+   Type in the letter `o`+`Enter` to open the browser and navigate to the app server URL (http://localhost:3000)
+   ・ターミナルで `o` + `Enter` を入力すると、ブラウザで http://localhost:3000 が開きます。
    ```bash
    o
    ```
-
-6. Modify the original folder name as you wish and happy coding!
