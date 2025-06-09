@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+service ChatService {
+  rpc SayHello (Empty) returns (HelloReply);
+  rpc ProcessText (TextInput) returns (TextOutput);
+}
+
+message Empty {}
+
+message HelloReply {
+  string message = 1;
+}
+
+message TextInput {
+  string text = 1;
+}
+
+message TextOutput {
+  string message = 1;
+}

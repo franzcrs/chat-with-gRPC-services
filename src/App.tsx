@@ -5,6 +5,7 @@ import { BiSolidLeftArrow } from "react-icons/bi";
 import CustomScrollableContainer from './components/CustomScrollableContainer';
 import InputBox from './components/InputBox';
 import ActionButton from './components/ActionButton';
+import { sayHello, processText } from './grpcClient.ts';
 
 interface ChatMessage {
   sender: "bot" | "user";
@@ -29,9 +30,45 @@ function App() {
   };
 
   // Placeholder functions for action buttons
-  const actionOne = () => {
+  const actionOne = async () => {
+    // Add a user message to the chat history
+    setChatHistory(prev => [...prev, { sender: "user", message: "<i>User requested action 1</i>" }]);
+    try {
+      const res = await sayHello();
+      // Only add to chat history if we got a valid response
+      if (res && typeof res === 'string') {
+        setChatHistory(prev => [...prev, { sender: "bot", message: res }]);
+      } else {
+        setChatHistory(prev => [...prev, { sender: "bot", message: "Sorry, I couldn't process that request." }]);
+      }
+    } catch (error) {
+      console.error("Error in sayHello:", error);
+      setChatHistory(prev => [...prev, { 
+        sender: "bot", 
+        message: "<i>An error occurred while processing your request. Please try again.</i>" 
+      }]);
+    }
   }
-  const actionTwo = () => {
+  const actionTwo = async () => {
+    // Add a user message to the chat history
+    setChatHistory(prev => [...prev, { sender: "user", message: "<i>User requested action 2</i>" }]);
+    try {
+      const res = await processText(inputQuery);
+      // Only add to chat history if we got a valid response
+      if (res && typeof res === 'string') {
+        setChatHistory(prev => [...prev, { sender: "bot", message: res }]);
+      } else {
+        setChatHistory(prev => [...prev, { sender: "bot", message: "Sorry, I couldn't process that request." }]);
+      }
+      // Clear the input field
+      setInputQuery('');
+    } catch (error) {
+      console.error("Error in sayHello:", error);
+      setChatHistory(prev => [...prev, { 
+        sender: "bot", 
+        message: "<i>An error occurred while processing your request. Please try again.</i>" 
+      }]);
+    }
   }
             
   return (

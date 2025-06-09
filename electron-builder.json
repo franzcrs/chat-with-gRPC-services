@@ -1,0 +1,20 @@
+{
+  "appId": "com.example.grpcapp",
+  "productName": "gRPC Chat App",
+  "files": [
+    "dist/**/*",
+    "grpc/**/*",
+    "dist-electron/**/*",
+    "package.json"
+  ],
+  "directories": {
+    "buildResources": "assets",
+    "output": "release"
+  },
+  "extraMetadata": {
+    "main": "dist-electron/main.cjs"
+  },
+  "win": {
+    "target": "nsis"
+  }
+}

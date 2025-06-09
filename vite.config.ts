@@ -10,4 +10,9 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  build: {
+    // https://vite.dev/config/build-options.html
+    outDir: 'dist', // Default output directory
+    target: 'esnext',
+  }
 })
